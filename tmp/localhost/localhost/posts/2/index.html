@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>insta485</title>
+</head>
+
+<a href = "/">Link</a>
+<div style='position:relative;float:right;'>
+    <a href = "/explore/">explore</a>
+    <a href = "/users/awdeorio/">awdeorio</a>
+    
+</div>
+<div class = "post">
+
+    <a href = "/users/jflinn/"><img src = "/uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg" alt = "profile picture"
+        style="width:30px;height:30px;"></a>
+    <a href = "/users/jflinn/">jflinn</a>
+    <a href = "/posts/2/">just now</a>   
+    <img src = "/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" style = "display:block;" alt = "post with link">
+    
+        2 likes
+    
+    <div>
+        
+        <a href = "/users/awdeorio/">awdeorio</a>
+        <p>Sick #crossword</p>
+            
+        <!--Deleting comments-->
+            
+            <form action="/comments/?target=/posts/2/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="delete"/>
+                <input type="hidden" name="commentid" value="4"/>
+                <input type="submit" name="uncomment" value="delete"/>
+            </form>
+            
+            <br>
+        
+
+        
+            <!--Unlike-->
+            <form action="/likes/?target=/posts/2/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="unlike"/>
+                <input type="hidden" name="postid" value="2"/>
+                <input type="submit" name="unlike" value="unlike"/>
+            </form>
+        
+        <!--Comment-->
+        <form action="/comments/?target=/posts/2/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="create"/>
+            <input type="hidden" name="postid" value="2"/>
+            <input type="text" name="text" required/>
+            <input type="submit" name="comment" value="comment"/>
+        </form>
+    </div>
+
+    
+
+</div>
+</html>

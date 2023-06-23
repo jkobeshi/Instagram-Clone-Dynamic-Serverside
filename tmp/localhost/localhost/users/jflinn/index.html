@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+        <title>insta485</title>
+    
+    <div>
+        <a href = "/">Link</a>
+        <div style='position:relative;float:right;'>
+            <a href = "/explore/">explore</a>
+            <a href = "/users/awdeorio/">awdeorio</a>  
+        </div>
+    </div>
+    
+   
+    <h1>jflinn</h1>
+    
+        following
+        <form action="/following/?target=/users/jflinn/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="unfollow" value="unfollow"/>
+            <input type="hidden" name="username" value="jflinn"/>
+            <input type="hidden" name="operation" value="unfollow"/>
+        </form>
+    
+    
+    <div>
+
+        
+            <p>1 post</p>
+        
+
+        
+        <a href = "/users/jflinn/followers/">1 follower</a>
+        
+
+        
+        <a href = "/users/jflinn/following/">2 following</a>
+    </div>
+    <p>Jason Flinn</p>
+
+    <form action="/posts/?target=/users/awdeorio/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required/>
+        <input type="submit" name="create_post" value="upload new post"/>
+        <input type="hidden" name="operation" value="create"/>
+    </form>
+
+    
+    <a href = "/posts/2/">
+        <img src = "/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" style = "display:block" alt = "Users post">
+    </a>
+    
+</html>

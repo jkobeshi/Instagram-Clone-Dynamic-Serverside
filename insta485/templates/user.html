@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+        <title>insta485</title>
+    
+    <div>
+        <a href = "/">Link</a>
+        <div style='position:relative;float:right;'>
+            <a href = "/explore/">explore</a>
+            <a href = "/users/{{ logname }}/">{{ logname }}</a>  
+        </div>
+    </div>
+    
+   
+    <h1>{{username}}</h1>
+    {% if logname == username %}
+        <a href = "/accounts/edit/">Edit profile</a>
+        <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="logout" value="Logout"/>
+        </form>
+    {% elif logname_follows_username %}
+        following
+        <form action="/following/?target=/users/{{username}}/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="unfollow" value="unfollow"/>
+            <input type="hidden" name="username" value="{{username}}"/>
+            <input type="hidden" name="operation" value="unfollow"/>
+        </form>
+    {% else %}
+        not following
+        <form action="/following/?target=/users/{{username}}/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="follow" value="follow"/>
+            <input type="hidden" name="username" value="{{username}}"/>
+            <input type="hidden" name="operation" value="follow"/>
+        </form>
+    {% endif %}
+    
+    <div>
+
+        {% if total_posts == 1 %}
+            <p>1 post</p>
+        {% else %}
+            <p>{{total_posts}} posts</p>
+        {% endif %}
+
+        {% if followers == 1 %}
+        <a href = "/users/{{username}}/followers/">{{followers}} follower</a>
+        {% else %}
+        <a href = "/users/{{username}}/followers/">{{followers}} followers</a>
+        {% endif %}
+
+        
+        <a href = "/users/{{username}}/following/">{{following}} following</a>
+    </div>
+    <p>{{fullname}}</p>
+
+    <form action="/posts/?target=/users/{{logname}}/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required/>
+        <input type="submit" name="create_post" value="upload new post"/>
+        <input type="hidden" name="operation" value="create"/>
+    </form>
+
+    {% for post in posts %}
+    <a href = "/posts/{{post.postid}}/">
+        <img src = "/uploads/{{post.filename}}" style = "display:block" alt = "Users post">
+    </a>
+    {% endfor %}
+</html>

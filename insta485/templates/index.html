@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .post{
+            border: 1px solid black;
+            padding: 25px;
+        }
+    </style>    
+    
+        <title>insta485</title>
+    
+
+   <body>
+
+    <div>
+        <a href = "/">Link</a>
+        <div style='position:relative;float:right;'>
+            <a href = "/explore/">explore</a>
+            <a href = "/users/{{logname}}/">{{logname}}</a>
+        </div>
+    </div>
+
+    {% for post in posts %}
+
+    <div class = "post">
+        <!-- remember to change url-->
+        <a href = "/users/{{post.owner}}/"><img src = "/uploads/{{post.pfp}}" alt = "profile picture"
+            style="width:30px;height:30px;"></a>
+        <a href = "/users/{{post.owner}}/">{{post.owner}}</a>
+        <a href = "/posts/{{post.postid}}/">{{post.timestamp}}</a>   
+        <img src = "/uploads/{{post.filename}}" style = "display:block;" alt = "post with link">
+        {% if post.like == 1 %}
+            1 like
+        {% else %}
+            {{post.like}} likes
+        {% endif %}
+        <div>
+            {% for comment in post.comments %}
+            <a href = "/users/{{comment.owner}}/">{{comment.owner}}</a>
+            <p>{{comment.text}}</p>
+            {% endfor %}
+        </div>
+
+        {% if post.liked_post == 0 %}
+        <!--Like-->
+        <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="like"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="submit" name="like" value="like"/>
+        </form>
+        {% else %}
+        <!--Unlike-->
+        <form action="/likes/?target=/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="unlike"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="submit" name="unlike" value="unlike"/>
+        </form>
+        {% endif %}
+        <!--Comment-->
+        <form action="/comments/?target=/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="create"/>
+            <input type="hidden" name="postid" value="{{post.postid}}"/>
+            <input type="text" name="text" required/>
+            <input type="submit" name="comment" value="comment"/>
+        </form>
+
+    </div>
+    {% endfor %}
+        
+    </body>
+</html>

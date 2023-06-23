@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Elements Reference</title>
+  </head>
+<body>
+  <div>
+    <a href = "/">Link</a>
+    <div style='position:relative;float:right;'>
+        <a href = "/explore/">explore</a>
+        <a href = "/users/awdeorio/">awdeorio</a>  
+    </div>
+</div>
+<img src = "/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt = "profile picture"
+            style="width:60px;height:60px;">
+
+<p>awdeorio</p>
+
+<!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+<form action="/accounts/?target=/accounts/edit/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*"/>
+    <input type="text" name="fullname" value="Andrew DeOrio" required/>
+    <input type="text" name="email" value="awdeorio@umich.edu" required/>
+    <input type="submit" name="update" value="submit"/>
+    <input type="hidden" name="operation" value="edit_account"/>
+  </form>
+
+<a href = "/accounts/password/">Set password</a>
+<a href = "/accounts/delete/">Delete account</a>
+
+</body></html>

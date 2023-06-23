@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>insta485</title>
+</head>
+
+<a href = "/">Link</a>
+<div style='position:relative;float:right;'>
+    <a href = "/explore/">explore</a>
+    <a href = "/users/awdeorio/">awdeorio</a>
+    
+</div>
+<div class = "post">
+
+    <a href = "/users/jag/"><img src = "/uploads/73ab33bd357c3fd42292487b825880958c595655.jpg" alt = "profile picture"
+        style="width:30px;height:30px;"></a>
+    <a href = "/users/jag/">jag</a>
+    <a href = "/posts/4/">just now</a>   
+    <img src = "/uploads/2ec7cf8ae158b3b1f40065abfb33e81143707842.jpg" style = "display:block;" alt = "post with link">
+    
+        0 likes
+    
+    <div>
+        
+        <a href = "/users/jag/">jag</a>
+        <p>Saw this on the diag yesterday!</p>
+            
+        <!--Deleting comments-->
+            
+            <br>
+        
+
+        
+            <!--Like-->
+            <form action="/likes/?target=/posts/4/" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="operation" value="like"/>
+                <input type="hidden" name="postid" value="4"/>
+                <input type="submit" name="like" value="like"/>
+            </form>
+        
+        <!--Comment-->
+        <form action="/comments/?target=/posts/4/" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="operation" value="create"/>
+            <input type="hidden" name="postid" value="4"/>
+            <input type="text" name="text" required/>
+            <input type="submit" name="comment" value="comment"/>
+        </form>
+    </div>
+
+    
+
+</div>
+</html>

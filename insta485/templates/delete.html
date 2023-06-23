@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Elements Reference</title>
+  </head>
+  <body><!-- DO NOT CHANGE THIS (aside from styling) -->
+    <!-- DO NOT CHANGE THIS -->
+    <div>
+      <a href = "/">Link</a>
+      <div style='position:relative;float:right;'>
+          <a href = "/explore/">explore</a>
+          <a href = "/users/{{ username }}/">{{ username }}</a>  
+      </div>
+  </div>
+    <p>{{username}}</p>
+<form action='/accounts?target=/accounts/create/' method="post" enctype="multipart/form-data">
+    <input type="submit" name="delete" value="confirm delete account"/>
+    <input type="hidden" name="operation" value="delete"/>
+  </form>
+</body></html>
